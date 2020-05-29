@@ -1,0 +1,30 @@
+def jfrogDeployUser = project.findProperty('jfrogDeployUser') ?: System.env.JFROG_DEPLOY_USER
+def jfrogDeployKey = project.findProperty('jfrogDeployKey') ?: System.env.JFROG_DEPLOY_KEY
+def publishArtifacts = project.findProperty('publishArtifacts') ?: System.env.BINTRAY_PUBLISH
+boolean enableBintray = jfrogDeployUser && jfrogDeployKey
+
+if (enableBintray) {
+  bintray {
+    user = jfrogDeployUser
+    key = jfrogDeployKey
+    publications = ['mavenPublication']
+    publish = Boolean.valueOf(publishArtifacts)
+
+    pkg {
+      repo = 'maven'
+      name = "${project.name}-client"
+      userOrg = project.org
+      desc = project.description
+      issueTrackerUrl = project.tracker
+      vcsUrl = project.httpscm
+      licenses = [project.license]
+      githubRepo = "${project.org}/${project.name}"
+      githubReleaseNotesFile = 'README.md'
+      version {
+        name = project.version
+        released = new Date()
+        vcsTag = project.version
+      }
+    }
+  }
+}
