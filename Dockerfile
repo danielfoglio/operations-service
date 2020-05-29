@@ -40,7 +40,7 @@ RUN ./gradlew --no-daemon jacocoTestReport coveralls
 FROM openjdk:8u212-jre-alpine3.9 as package
 
 ## setup env var for the app name
-ENV CRATEKUBE_APP dropwizard-groovy-template
+ENV CRATEKUBE_APP operations-service
 
 ## add in files needed at runtime
 WORKDIR /app
