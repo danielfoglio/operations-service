@@ -42,7 +42,7 @@ class OperationsService implements OperationsApi {
     return [:]
   }
 
-  private Environment waitForEnvironmentStatus(
+  Environment waitForEnvironmentStatus(
     String name,
     EnvironmentStatusEnum status
   ) {
@@ -52,7 +52,7 @@ class OperationsService implements OperationsApi {
     return null
   }
 
-  private Cluster waitForClusterStatus(
+  Cluster waitForClusterStatus(
     String name,
     ClusterStatusEnum status
   ) {
