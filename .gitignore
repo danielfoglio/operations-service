@@ -25,3 +25,6 @@
 !swagger-config.json
 
 !deployment.yml
+
+!docs
+!docs/*
