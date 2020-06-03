@@ -16,4 +16,16 @@ jerseyClient:
   gzipEnabledForRequests: false
 
 swagger:
-  resourcePackage: io.cratekube.example.resources
+  resourcePackage: io.cratekube.operations.resources
+
+cloudMgmt:
+  url: ${CLOUD_MGMT_URL:-http://cloud-mgmt-service:9002}
+
+clusterMgmt:
+  url: ${CLUSTER_MGMT_URL:-http://cluster-mgmt-service:9001}
+
+auth:
+  apiKeys:
+    - name: admin
+      key: ${ADMIN_APIKEY:-eknvDrmcDtseeieSMTvngo}
+      roles: ['admin']

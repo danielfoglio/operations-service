@@ -1,6 +1,6 @@
-package io.cratekube.example
+package io.cratekube.operations
 
-import io.cratekube.example.modules.IntegrationSpecModule
+import io.cratekube.operations.modules.IntegrationSpecModule
 import ru.vyarus.dropwizard.guice.GuiceBundle
 import ru.vyarus.dropwizard.guice.hook.GuiceyConfigurationHook
 

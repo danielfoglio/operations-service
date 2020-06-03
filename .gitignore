@@ -23,3 +23,5 @@
 !*.md
 !codenarc.groovy
 !swagger-config.json
+
+!deployment.yml
