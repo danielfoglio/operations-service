@@ -4,7 +4,6 @@ import com.google.inject.Provides
 import io.cratekube.operations.AppConfig
 import io.cratekube.operations.api.OperationsApi
 import io.cratekube.operations.model.EnvironmentCluster
-import io.cratekube.operations.model.Status
 import io.cratekube.operations.modules.annotation.OperationsCache
 import io.cratekube.operations.service.OperationsService
 import org.apache.commons.collections4.map.LRUMap
@@ -20,7 +19,7 @@ import java.util.concurrent.Executors
 class ProductionModule extends DropwizardAwareModule<AppConfig> {
   @Override
   protected void configure() {
-    bind OperationsApi annotatedWith OperationsCache to OperationsService
+    bind OperationsApi to OperationsService
     bind Executor toInstance Executors.newCachedThreadPool()
     install new CloudMgmtModule(configuration())
     install new ClusterMgmtModule(configuration())
