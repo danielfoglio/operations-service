@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: operations-service
-          image: cratekube/operations-service
+          image: cratekube/operations-service:latest
           ports:
             - containerPort: 9000
           env:
