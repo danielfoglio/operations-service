@@ -7,7 +7,7 @@ import io.cratekube.operations.model.EnvironmentCluster
  */
 interface OperationsApi {
   /**
-   * Creates cluster infrastructure and bootstraps cluster.
+   * Creates infrastructure and bootstraps cluster.
    *
    * @param name {@code non-empty} cluster name
    */
@@ -19,4 +19,11 @@ interface OperationsApi {
    * @return environment clusters
    */
   Map<String, EnvironmentCluster> getEnvironmentClusters()
+
+  /**
+   * Deletes infrastructure and cluster.
+   *
+   * @param name {@code non-empty} cluster name
+   */
+  void deleteEnvironmentCluster(String name)
 }

@@ -6,10 +6,7 @@ import io.cratekube.cloud.client.api.EnvironmentsApi
 import io.cratekube.clustermgmt.client.api.DefaultApi as ClusterMgmtApi
 import io.cratekube.operations.AppConfig
 import io.cratekube.operations.api.OperationsApi
-import io.cratekube.operations.model.Status
-import io.cratekube.operations.modules.annotation.OperationsCache
 import io.dropwizard.client.JerseyClientBuilder
-import org.apache.commons.collections4.map.LRUMap
 import ru.vyarus.dropwizard.guice.module.support.DropwizardAwareModule
 import spock.mock.DetachedMockFactory
 

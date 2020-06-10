@@ -4,9 +4,6 @@ import groovy.transform.Memoized
 import io.cratekube.cloud.client.api.EnvironmentsApi
 import io.cratekube.clustermgmt.client.api.DefaultApi as ClusterMgmtApi
 import io.cratekube.operations.api.OperationsApi
-import io.cratekube.operations.model.EnvironmentCluster
-import io.cratekube.operations.model.Status
-import io.cratekube.operations.modules.annotation.OperationsCache
 import org.spockframework.mock.MockUtil
 import ru.vyarus.dropwizard.guice.test.spock.UseDropwizardApp
 import spock.lang.Specification
@@ -29,7 +26,6 @@ abstract class BaseIntegrationSpec extends Specification {
   @Inject EnvironmentsApi cloudMgmtApi
   @Inject ClusterMgmtApi clusterMgmtApi
   @Inject AppConfig config
-  @Inject @OperationsCache Map<String, EnvironmentCluster> operationsCache
 
   def setup() {
     [operationsApi, cloudMgmtApi, clusterMgmtApi].findAll { mockUtil.isMock(it) }

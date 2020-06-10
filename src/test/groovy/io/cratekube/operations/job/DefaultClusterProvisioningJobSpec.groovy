@@ -1,11 +1,9 @@
 package io.cratekube.operations.job
 
 import io.cratekube.operations.api.OperationsApi
-import io.cratekube.operations.model.Status
-import io.cratekube.operations.resources.OperationsResource
-import io.cratekube.operations.service.OperationsService
+import io.cratekube.operations.model.Constants
+import org.quartz.JobExecutionContext
 import org.valid4j.errors.RequireViolation
-import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -26,12 +24,11 @@ class DefaultClusterProvisioningJobSpec extends Specification {
     thrown RequireViolation
   }
 
-//  @PendingFeature
-//  def "do job creates a default cluster"() {
-//    when:
-//    subject.doJob(_)
-//
-//    then:
-//
-//  }
+  def "do job creates a default cluster"() {
+    when:
+    subject.doJob(_ as JobExecutionContext)
+
+    then:
+    1 * operationsApi.bootstrapEnvironmentCluster(Constants.DEFAULT)
+  }
 }

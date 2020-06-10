@@ -5,6 +5,7 @@ import de.spinscale.dropwizard.jobs.annotations.DelayStart
 import de.spinscale.dropwizard.jobs.annotations.Every
 import groovy.util.logging.Slf4j
 import io.cratekube.operations.api.OperationsApi
+import io.cratekube.operations.model.Constants
 import org.quartz.JobExecutionContext
 import org.quartz.JobExecutionException
 
@@ -34,5 +35,6 @@ class DefaultClusterProvisioningJob extends Job {
   @Override
   void doJob(JobExecutionContext context) throws JobExecutionException {
     log.debug 'Executing DefaultClusterProvisioningJob'
+    operationsApi.bootstrapEnvironmentCluster(Constants.DEFAULT)
   }
 }
